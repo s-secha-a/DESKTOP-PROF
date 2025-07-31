@@ -1,0 +1,17 @@
+.confirmButtons{
+    position: absolute;
+    display: flex;
+    bottom: 32px;
+    right: 32px;
+    flex-direction:column;
+}
+
+.statusBtn{
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px;
+    width: 160px;
+    border-radius: 8px;
+    margin-top: 16px;
+}

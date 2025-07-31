@@ -1,0 +1,24 @@
+.StudentInfo-Spisok{
+    padding: 32px;
+}
+  
+.Label-StudentInfo-Spisok{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+}
+  
+.Name-StudentInfo-Spisok{
+    font-size: 32px;
+    margin-top: 16px;
+}
+  
+.Anouther-StudentInfo-Spisok{
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    column-gap: 64px;
+    row-gap: 32px;
+}

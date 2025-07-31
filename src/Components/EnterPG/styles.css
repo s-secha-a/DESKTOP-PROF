@@ -1,0 +1,50 @@
+.Enter{
+    padding: 32px;
+}
+
+.Label-Enter{
+    font-size: 24px;
+    margin-top: 32px;
+}
+
+.input-Enter{
+    margin-top: 8px;
+    background-color: #4A4A4A;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0px;
+    font-size: 16px;
+    height: 24px;
+    padding: 4px;
+    
+}
+
+.btn-Enter{
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px;
+    width: 120px;
+    border-radius: 8px;
+    margin-top: 32px;
+}
+
+.input-Enter-radio{
+    margin-top: 8px;
+    background-color: #4A4A4A;
+    color: #818181;
+    border-radius: 4px;
+    border: 0px;
+    font-size: 16px;
+    height: 24px;
+    padding: 6px;
+    
+}
+
+.input-Enter-radio input[type=radio] {
+	display: none;
+}
+
+.input-Enter-radio input[type=radio]:checked + label{
+	color: #FFFFFF;
+}

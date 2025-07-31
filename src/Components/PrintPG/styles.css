@@ -1,0 +1,114 @@
+.Printig{
+    padding: 32px;
+    
+}
+  
+.Logs-Printing{
+    background-color: #C8C8C8;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+    /* font-weight: 500; */
+    border-radius: 16px;
+    margin-bottom: 8px;
+}
+  
+.divForLogs{
+    max-height: 140px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    margin-top: 16px;
+}
+  
+.Card-Logs-Printing{
+    margin-top: 8px;
+    width: 250px;
+    background-color: #0A0A0A;
+    display: grid;
+    /* grid-template-columns: 55px auto 16px; */
+    grid-template-columns: auto 16px;
+    column-gap: 20px;
+    color: #FFFFFF;
+    padding: 8px;
+    border-radius: 8px;
+    /* grid-template-areas:
+      "date locate count"; */
+    grid-template-areas:
+      "locate count";
+}
+  
+.date-Card-Logs-Printing{grid-area:date}
+.locate-Card-Logs-Printing{grid-area:locate}
+.count-Card-Logs-Printing{grid-area:count; text-align: right;}
+  
+.Manual-Printing{
+    background-color: #C8C8C8;
+    padding: 16px;
+    /* padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px; */
+    font-size: 14px;
+    /* font-weight: 500; */
+    border-radius: 16px;
+    margin-top: 16px;
+}
+  
+.Body-Manual-Printing{
+    margin-top: 16px;
+}
+  
+.Setting-Manual-Printing{
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+  
+.Input-Setting-Manual-Printing{
+    width: 36px;
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    border: none;
+    text-align: right;input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+}
+  
+.Input-Setting-Manual-Printing:focus{
+    border: none;
+    outline: none;
+}
+  
+.Confirm-Manual-Printing{
+    background-color: #E4E4E4;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    margin-top: 8px;
+    transition-duration: 0.3s;
+}
+  
+.Confirm-Manual-Printing:hover{
+    background-color: #F9F9F9;
+    transition-duration: 0.3s;
+}
+  
+.Confirm-Manual-Printing:focus{
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    transition-duration: 0.3s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
