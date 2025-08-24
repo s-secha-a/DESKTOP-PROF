@@ -2,12 +2,17 @@ import React from "react";
 
 import { Profile } from "../Profile/index.jsx";
 import "./styles.css"
+import { clearUserData } from "../sideScripts/clearUserData.js";
 
 const SearchPG = () => {
     window.sessionStorage.setItem('activeWindow', 'Search');
+    clearUserData()
     return(
         <div className="activeWorkSpace">
             <Profile />
+
+            <div className="AlertInputValue" id="AlertInputValue">Ничего не найдено</div>
+
             <div className="StudentInfo-Spisok" id="StudentInfo-Spisok" style={{display:"none"}}>
                 <div className="Institut-StudentInfo-Spisok">
                     <div className="Label-StudentInfo-Spisok">Институт/Факультет</div>

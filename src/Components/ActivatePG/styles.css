@@ -15,3 +15,20 @@
     border-radius: 8px;
     margin-top: 16px;
 }
+
+.studentCard{
+    height: 64px;
+    width: 700px;
+    background: #c8c8c8;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    display: flex;
+    font-size: 20px;
+}
+
+.miniPhoto{
+    height: 48px;
+    width: 48px;
+    margin: 8px;
+    border-radius: 8px;
+}

@@ -3,41 +3,20 @@ import React from "react";
 import { Profile } from "../Profile/index.jsx";
 import "./styles.css"
 import { ConfirmAcc, DenyAcc } from "./buttonActivation.js";
+import { clearUserData } from "../sideScripts/clearUserData.js";
+import { InfoWindow } from "./indexWindowActivate.jsx";
+import { CreateList } from "./createListFind.jsx";
 
 const ActivatePG = () => {
     window.sessionStorage.setItem('activeWindow', 'Activate');
+    clearUserData()
     return(
-        <div className="activeWorkSpace">
+        <div className="activeWorkSpace" id="activeWorkSpace">
             <Profile />
-            <div className="StudentInfo-Spisok" id="StudentInfo-Spisok" style={{display:"none"}}>
-                <div className="Institut-StudentInfo-Spisok">
-                    <div className="Label-StudentInfo-Spisok">Институт/Факультет</div>
-                    <div className="Name-StudentInfo-Spisok" id="editFaculty"></div>
-                </div>
-                <div className="Anouther-StudentInfo-Spisok">
-                    <div className="Сourse">
-                        <div className="Label-StudentInfo-Spisok">Курс</div>
-                        <div className="Name-StudentInfo-Spisok" id="editCourse"></div>
-                    </div>
-                    {/* <div className="Group">
-                        <div className="Label-StudentInfo-Spisok">Группа</div>
-                        <div className="Name-StudentInfo-Spisok" id="editGroup">???</div>
-                    </div> */}
-                    <div className="FormStudy">
-                        <div className="Label-StudentInfo-Spisok">Форма обучения</div>
-                        <div className="Name-StudentInfo-Spisok" id="editBudget"></div>
-                    </div>
-                    <div className="YearsStudy">
-                        <div className="Label-StudentInfo-Spisok">Года обучения</div>
-                        <div className="Name-StudentInfo-Spisok" id="years"></div>
-                    </div>
+            <InfoWindow />
 
-                    <div className="confirmButtons">
-                        <input type="button" className="statusBtn" value="Подтвердить" onClick={ConfirmAcc}/>
-                        <input type="button" className="statusBtn" value="Отклонить" onClick={DenyAcc}/>
-                    </div>
-                </div>
-            </div>
+            <div id="forList" style={{display: "inline"}}></div>
+            
         </div>
     );
 };

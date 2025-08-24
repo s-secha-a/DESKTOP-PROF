@@ -2,9 +2,13 @@ import React from "react";
 
 import "./styles.css"
 import { Profile } from "../Profile/index.jsx";
+import { addNewPrint } from "./newPrint.js";
+import { clearUserData } from "../sideScripts/clearUserData.js";
 
 const PrintPG = () => {
     window.sessionStorage.setItem('activeWindow', 'Print');
+    clearUserData()
+    
     return(
         <div className="activeWorkSpace">
             <Profile />
@@ -15,17 +19,17 @@ const PrintPG = () => {
                         <div className="Card-Logs-Printing">
                             {/* <div className="date-Card-Logs-Printing">12.06.25</div> */}
                             <div className="locate-Card-Logs-Printing">Большая морская</div>
-                            <div className="count-Card-Logs-Printing" id="bm-count"></div>
+                            <div className="count-Card-Logs-Printing" id="bm_office-count"></div>
                         </div>
                         <div className="Card-Logs-Printing">
                             {/* <div className="date-Card-Logs-Printing">24.04.25</div> */}
                             <div className="locate-Card-Logs-Printing">Ленсовета</div>
-                            <div className="count-Card-Logs-Printing" id="lensa-count"></div>
+                            <div className="count-Card-Logs-Printing" id="lns_office-count"></div>
                         </div>
                         <div className="Card-Logs-Printing">
                             {/* <div className="date-Card-Logs-Printing">19.02.25</div> */}
                             <div className="locate-Card-Logs-Printing">Гастелло</div>
-                            <div className="count-Card-Logs-Printing" id="gasta-count"></div>
+                            <div className="count-Card-Logs-Printing" id="gst_office-count"></div>
                         </div>
                     </div>
                 </div>
@@ -37,7 +41,7 @@ const PrintPG = () => {
                         <input type="number" name="" id="input-count-print" className="Input-Setting-Manual-Printing"
                         min="1" max="30"/>
                     </div>
-                    <input type="button" value="Печать" className="Confirm-Manual-Printing"/>
+                    <input type="button" value="Печать" className="Confirm-Manual-Printing" onClick={addNewPrint}/>
                     </div>
                 </div>
             </div>

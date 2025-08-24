@@ -37,6 +37,7 @@ export default function LogInClick() {
             .then(data => {
                 if (data.access == true) {
                     window.sessionStorage.setItem('sessionCode', data.sessionCode);
+                    window.sessionStorage.setItem('locate', locate);
                     window.location.reload();
                 } else {
                     console.log("Access = False")

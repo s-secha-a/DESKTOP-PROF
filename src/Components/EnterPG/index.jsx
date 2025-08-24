@@ -21,15 +21,15 @@ const EnterPG = () => {
                 </div>
                 <div className="locateDiv">
                     <div className="input-Enter-radio">
-                        <input type="radio" id="firstRadio" name="input-Enter" value="BolshayaMorskaya"/>
+                        <input type="radio" id="firstRadio" name="input-Enter" value="bm_office"/>
                         <label htmlFor="firstRadio">Большая Морская</label>
                     </div>
                     <div className="input-Enter-radio">
-                        <input type="radio" id="secondRadio" name="input-Enter" value="Gastello"/>
+                        <input type="radio" id="secondRadio" name="input-Enter" value="gst_office"/>
                         <label htmlFor="secondRadio">Гастелло</label>
                     </div>
                     <div className="input-Enter-radio">
-                        <input type="radio" id="thirdRadio" name="input-Enter" value="Lensoveta"/>
+                        <input type="radio" id="thirdRadio" name="input-Enter" value="lns_office"/>
                         <label htmlFor="thirdRadio">Ленсовета</label>
                     </div>
                 </div>    

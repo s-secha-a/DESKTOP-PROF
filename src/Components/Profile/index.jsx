@@ -6,7 +6,40 @@ import barcodeIcon from "../../assets/Icons/barcodeIcon24.png";
 import { FindByBarcode } from "../sideScripts/barcodeScan.js";
 
 const Profile = () => {
-    return(
+    
+  const InputVer = () =>{
+    var active = window.sessionStorage.getItem('activeWindow');
+    if (active != "Activate") {
+      return(
+        <input 
+            type="number" 
+            className="input-barcode" 
+            id="barcodeScan" 
+            onFocus={function(){document.getElementById("barcodeScan").value = ""}} 
+            onKeyDown={function(e){
+              var keyCode = e.code || e.key;
+              if (keyCode == 'Enter'){
+                FindByBarcode();
+          }}}/>
+      )
+    } else {
+      return(
+        <input 
+          type="text" 
+          className="input-barcode" 
+          id="barcodeScan" 
+          onFocus={function(){document.getElementById("barcodeScan").value = ""}} 
+          onKeyDown={function(e){
+            var keyCode = e.code || e.key;
+            if (keyCode == 'Enter'){
+              FindByBarcode();
+          }}}/>
+      )
+    };
+  };
+  
+  
+  return(
         <div className="Profile">
 
           <div className="LabelSudent-Profile">
@@ -17,15 +50,7 @@ const Profile = () => {
             </div> */}
           </div>
 
-          <input type="numeric" 
-            className="input-barcode" 
-            id="barcodeScan" 
-            onFocus={function(){document.getElementById("barcodeScan").value = ""}} 
-            onKeyDown={function(e){
-              var keyCode = e.code || e.key;
-              if (keyCode == 'Enter'){
-                FindByBarcode();
-          }}}/>
+          <InputVer />
 
           <div className="StudentName-Profile">
             <div id="SecondName-StudentName-Profile"></div>
