@@ -6,6 +6,7 @@ module.exports = [
     test: /native_modules[/\\].+\.node$/,
     use: 'node-loader',
   },
+  
   {
     test: /[/\\]node_modules[/\\].+\.(m?js|node)$/,
     parser: { amd: false },
