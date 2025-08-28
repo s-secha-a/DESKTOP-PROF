@@ -1,4 +1,27 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain, shell  } = require('electron');
+const { updateElectronApp, UpdateSourceType } = require('update-electron-app');
+const path = require('node:path');
+require('dotenv').config();
+
+const appFolder = path.dirname(process.execPath);
+const ourExeName = path.basename(process.execPath);
+const stubLauncher = path.resolve(appFolder, '..', ourExeName);
+const { version } = require('../package.json');
+
+updateElectronApp({
+  updateSource: {
+    type: UpdateSourceType.ElectronPublicUpdateService,
+    repo: 's-secha-a/SUAI-DESKPROF'
+  },
+  updateInterval: '1 hour'
+})
+
+
+app.setLoginItemSettings({
+  openAtLogin: true,
+  path: stubLauncher,
+
+})
 
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -9,6 +32,7 @@ if (require('electron-squirrel-startup')) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
+    // icon: __dirname+"/app.ico",
     width: 1280,
     height: 720,
     autoHideMenuBar: true,
@@ -27,20 +51,37 @@ const createWindow = () => {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+
+  mainWindow.webContents.once('did-finish-load', () => {
+    mainWindow.webContents.send('app-version', version);
+  });
 };
+
+
+ipcMain.handle('get-app-version', () => {
+  return version;
+});
+
+ipcMain.handle('open-external-link', (event, url) => {
+  shell.openExternal(url);
+});
+
+ipcMain.handle('get-env-variable', (event, key) => {
+  return process.env[key];
+});
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow();
-
+  
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
-      window.localStorage.clear()
-      window.sessionStorage.clear()
+      window.localStorage.clear();
+      window.sessionStorage.clear();
       createWindow();
     }
   });

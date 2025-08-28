@@ -35,6 +35,7 @@ const EnterPG = () => {
                 </div>    
                 <input type="button" value="Войти" className="btn-Enter" onClick={LogInClick}/>
             </div>
+
         </div>
     );
 };

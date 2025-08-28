@@ -1,4 +1,7 @@
+import { getServUrl } from "./env";
+import { showMessage } from "./showSysMes";
 
+const URL = getServUrl();
 
 export default function LogInClick() {
     console.log('Нажата');
@@ -12,15 +15,13 @@ export default function LogInClick() {
     }    
 
     if (login=="" || password=="" || locate=="") {
-        console.log("Заполнить все поля!");
+        showMessage("Нужно заполнить все поля", "warn");
         // вывести текст на страницу
     } else {
         try {
             console.log(login);
             console.log(password);
-            console.log(locate);
-            
-            fetch(`http://127.0.0.1:8000/api/v2.0/userAuth?login=${login}&password=${password}&locate=${locate}`, {
+            fetch(`${URL}/api/v2.0/userAuth?login=${login}&password=${password}&locate=${locate}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'
@@ -28,9 +29,15 @@ export default function LogInClick() {
             })
             .then(response => {
                 if (response.status == 403) {
-                    console.log("Неверный логин или пароль");
+                    showMessage("Неверный логин и/или пароль", "error");
+                    var er = new Error("Выход из then | 403");
+                    er.name = "Custom";
+                    throw er;
                 } else if (!response.ok){
-                    console.log("Статус ответа не в диапазоне 200-299");
+                    showMessage("Ошибка запроса auth", "error");
+                    var er = new Error("Выход из then | !response.ok");
+                    er.name = "Custom";
+                    throw er;
                 } else if (response.ok) {
                     return response.json();
             }})
@@ -38,17 +45,22 @@ export default function LogInClick() {
                 if (data.access == true) {
                     window.sessionStorage.setItem('sessionCode', data.sessionCode);
                     window.sessionStorage.setItem('locate', locate);
+                    window.sessionStorage.setItem('managerUuid', data.uuidUser);
                     window.location.reload();
                 } else {
                     console.log("Access = False")
+                    showMessage("Этот аккаунт заблокирован", "warn");
                 }
             })
             .catch((err) => {
-                console.log("Сервер не отвечает");
-                console.log(err)
+                if (err.name != "Custom"){
+                    console.log(err);
+                    showMessage("Сервер не ответил", "error");
+                }                            
             })
         } catch (ex) {
-            console.log("Ошибка = " + ex);   
+            showMessage("Локальная ошибка", "error")
+            console.log(ex);   
         }
     };
 }

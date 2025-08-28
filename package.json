@@ -1,8 +1,8 @@
 {
   "name": "desktop-prof",
-  "productName": "desktop-prof",
-  "version": "1.0.0",
-  "description": "",
+  "productName": "Офис Профком ГУАП",
+  "version": "0.1.1",
+  "description": "Приложение для офисов профкома ГУАП",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
@@ -25,6 +25,7 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
     "@electron-forge/plugin-fuses": "^7.8.1",
     "@electron-forge/plugin-webpack": "^7.8.1",
+    "@electron-forge/publisher-github": "^7.8.3",
     "@electron/fuses": "^1.8.0",
     "@vercel/webpack-asset-relocator-loader": "1.7.3",
     "babel-loader": "^10.0.0",
@@ -37,8 +38,10 @@
     "style-loader": "^3.3.4"
   },
   "dependencies": {
+    "dotenv": "^17.2.1",
     "electron-squirrel-startup": "^1.0.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "update-electron-app": "^3.1.1"
   }
 }

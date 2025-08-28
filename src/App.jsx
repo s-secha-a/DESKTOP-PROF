@@ -8,6 +8,7 @@ import { EnterPG } from "./Components/EnterPG/index.jsx";
 import { PrintPG }  from "./Components/PrintPG/index.jsx";
 import { SearchPG }  from "./Components/SearchPG/index.jsx";
 import { ActivatePG }  from "./Components/ActivatePG/index.jsx";
+import { Options }  from "./Components/MorePG/index.jsx";
 
 const View = () => {
     return(
@@ -18,6 +19,7 @@ const View = () => {
                     <Route path="/printPG" element={<PrintPG />} />
                     <Route path="/searchPG" element={<SearchPG />} />
                     <Route path="/activatePG" element={<ActivatePG />} />
+                    <Route path="/options" element={<Options />} />
                 </Route>
             </Routes>
         </HashRouter>

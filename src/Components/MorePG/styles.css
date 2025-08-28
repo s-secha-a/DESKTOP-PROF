@@ -1,0 +1,41 @@
+.LogOutBtn{
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}
+
+.logout-input-btn{
+    height: 30px;
+    width: 160px;
+    border-radius: 8px;
+    /* color: rgb(209, 0, 0); */
+    /* border-color: rgb(209, 0, 0); */
+    border-width: 0px;
+    /* font-weight: 600; */
+    background-color: rgb(255, 44, 44);
+    color: #E4E4E4;
+    transition: 100ms;
+}
+
+.logout-input-btn:active{
+    background-color: rgb(143, 0, 0);
+    transition: 100ms;
+}
+
+.info-card{
+    margin: 32px;
+}
+
+.tg-btn{
+    background-color: #27a7e7;
+    color: #FFF;
+    position: absolute;
+    padding: 8px;
+    border-radius: 8px;
+    right: 16px;
+}
+
+.Developers{
+    margin-top: 64px;
+    width: 300px;
+}

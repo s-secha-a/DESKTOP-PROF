@@ -24,6 +24,21 @@ module.exports = {
       config: {},
     },
   ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 's-secha-a',
+          name: 'SUAI-DESKPROF'
+        },
+        prerelease: false,
+        draft: true,
+        authToken: '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',
+        timeout: 300000
+      }
+    }
+  ],
   plugins: [
     {
       name: '@electron-forge/plugin-auto-unpack-natives',
@@ -33,7 +48,7 @@ module.exports = {
       name: '@electron-forge/plugin-webpack',
       config: {
         mainConfig: './webpack.main.config.js',
-        "devContentSecurityPolicy": "connect-scr 'self' http://127.0.0.1:8000 'unsafe-eval'",
+        "devContentSecurityPolicy": "connect-scr 'self' http://185.218.0.236:8009 'unsafe-eval'",
         renderer: {
           config: './webpack.renderer.config.js',
           entryPoints: [
@@ -49,6 +64,7 @@ module.exports = {
         },
       },
     },
+    
     // Fuses are used to enable/disable various Electron functionality
     // at package time, before code signing the application
     new FusesPlugin({

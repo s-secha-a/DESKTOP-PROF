@@ -11,7 +11,8 @@ const SearchPG = () => {
         <div className="activeWorkSpace">
             <Profile />
 
-            <div className="AlertInputValue" id="AlertInputValue">Ничего не найдено</div>
+            {/* Инфо что не найден */}
+            <div className="AlertInputValue" id="AlertInputValue"></div>
 
             <div className="StudentInfo-Spisok" id="StudentInfo-Spisok" style={{display:"none"}}>
                 <div className="Institut-StudentInfo-Spisok">

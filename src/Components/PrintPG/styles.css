@@ -5,9 +5,10 @@
   
 .Logs-Printing{
     background-color: #C8C8C8;
-    padding-top: 16px;
+    /* padding-top: 16px;
     padding-left: 16px;
-    padding-right: 16px;
+    padding-right: 16px; */
+    padding: 16px;
     font-size: 14px;
     /* font-weight: 500; */
     border-radius: 16px;
@@ -74,7 +75,7 @@
     color: #FFFFFF;
     border: none;
     text-align: right;input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+    input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */

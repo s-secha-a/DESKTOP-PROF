@@ -1,8 +1,11 @@
 import { ShowInfo_profile } from "../Profile/ShowInfo";
+import { getServUrl } from "../sideScripts/env";
+
+const URL = getServUrl();
 
 
 export function findByName(uuid) {
-    fetch(`http://127.0.0.1:8000/api/v2.0/profile?uuidUser=${uuid}&sessionCode=${window.sessionStorage.getItem("sessionCode")}`, {
+    fetch(`${URL}/api/v2.0/profile?uuidUser=${uuid}&sessionCode=${window.sessionStorage.getItem("sessionCode")}`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
@@ -49,6 +52,8 @@ export function ShowInfo_activate() {
             document.getElementById('editSksStatus').innerHTML = "Заблокирован";
         } else if (window.sessionStorage.getItem('sksStatus')=="moderation") {
             document.getElementById('editSksStatus').innerHTML = "На модерации";
+        } else if (window.sessionStorage.getItem('sksStatus')=="active") {
+            document.getElementById('editSksStatus').innerHTML = "Активен";
         }
         document.getElementById('editCourse').innerHTML = window.sessionStorage.getItem('course');
         
