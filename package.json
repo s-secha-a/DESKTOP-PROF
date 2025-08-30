@@ -1,7 +1,7 @@
 {
   "name": "desktop-prof",
-  "productName": "Офис Профком ГУАП",
-  "version": "0.1.1",
+  "productName": "SUAI Deskprof",
+  "version": "0.1.5",
   "description": "Приложение для офисов профкома ГУАП",
   "main": ".webpack/main",
   "scripts": {
@@ -11,6 +11,7 @@
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
+  "icon": "./src/appIcon.ico",
   "keywords": [],
   "author": "Максим",
   "license": "MIT",
@@ -38,7 +39,6 @@
     "style-loader": "^3.3.4"
   },
   "dependencies": {
-    "dotenv": "^17.2.1",
     "electron-squirrel-startup": "^1.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

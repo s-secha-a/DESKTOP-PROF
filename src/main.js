@@ -1,12 +1,13 @@
-const { app, BrowserWindow, ipcMain, shell  } = require('electron');
+const { app, BrowserWindow, ipcMain, shell, nativeImage  } = require('electron');
 const { updateElectronApp, UpdateSourceType } = require('update-electron-app');
 const path = require('node:path');
-require('dotenv').config();
+
 
 const appFolder = path.dirname(process.execPath);
 const ourExeName = path.basename(process.execPath);
 const stubLauncher = path.resolve(appFolder, '..', ourExeName);
 const { version } = require('../package.json');
+const appIcon = nativeImage.createFromPath('./src/appIcon.ico')
 
 updateElectronApp({
   updateSource: {
@@ -29,10 +30,25 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+
+// const userDataPath = path.join(__dirname, 'user-data');
+// const cachePath = path.join(__dirname, 'cache');
+
+// if (!fs.existsSync(userDataPath)) {
+//   fs.mkdirSync(userDataPath, { recursive: true });
+// }
+
+// if (!fs.existsSync(cachePath)) {
+//   fs.mkdirSync(cachePath, { recursive: true });
+// }
+
+// app.setPath('userData', userDataPath);
+// app.setPath('cache', cachePath);
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    // icon: __dirname+"/app.ico",
+    icon: appIcon,
     width: 1280,
     height: 720,
     autoHideMenuBar: true,
@@ -41,7 +57,7 @@ const createWindow = () => {
     resizable: false,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
-      devTools: true,
+      devTools: false,
       contextIsolation: true,
     },
   });
@@ -50,7 +66,9 @@ const createWindow = () => {
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
+
+  mainWindow.setIcon(appIcon);
 
   mainWindow.webContents.once('did-finish-load', () => {
     mainWindow.webContents.send('app-version', version);
