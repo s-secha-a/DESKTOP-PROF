@@ -3,6 +3,8 @@ import React from "react";
 import { Profile } from "../Profile/index.jsx";
 import "./styles.css"
 import { clearUserData } from "../sideScripts/clearUserData.js";
+import { HideInfo_profile } from "../sideScripts/hideInfo.js";
+import backIcon from "../../assets/Icons/backIcon24.png";
 
 const SearchPG = () => {
     window.sessionStorage.setItem('activeWindow', 'Search');
@@ -40,9 +42,15 @@ const SearchPG = () => {
                         <div className="Label-StudentInfo-Spisok">Взнос</div>
                         <div className="Name-StudentInfo-Spisok" id="editMoney"></div>
                     </div>
+                </div>
+
             </div>
 
-        </div>
+            <div className="backBtn" id="backBtn" onClick={HideInfo_profile} style={{display:'none'}}>
+                <img src={backIcon} alt="" className="Iconback"/>
+            </div>
+            
+            {/* <input type="button" className="backBtn" id="backBtn" value="Назад" onClick={HideInfo_profile} style={{display:'none'}}/> */}
         </div>
     );
 };

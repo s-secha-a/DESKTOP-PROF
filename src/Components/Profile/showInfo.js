@@ -1,7 +1,8 @@
 
 
 export function ShowInfo_profile() {
-    document.getElementById("barcodeScan").style.display = 'none'
+    document.getElementById("barcodeScan").style.display = 'none';
+    document.getElementById("backBtn").style.display = 'block';
 
     document.getElementById('SecondName-StudentName-Profile').innerHTML = window.sessionStorage.getItem('lastName');
     document.getElementById('FirstName-StudentName-Profile').innerHTML = window.sessionStorage.getItem('firstName');
@@ -12,4 +13,4 @@ export function ShowInfo_profile() {
     photoProfile.className="StudentPhoto-Profile";
     document.getElementById('PhotoProfile').innerHTML = "";
     document.getElementById('PhotoProfile').appendChild(photoProfile);
-}
+};

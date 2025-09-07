@@ -1,6 +1,8 @@
 import React from "react";
 
 import { ActiveAcc, BlockAcc, RejectAcc } from "./buttonActivation.js";
+import { HideInfo_profile } from "../sideScripts/hideInfo.js";
+import backIcon from "../../assets/Icons/backIcon24.png";
 
 const InfoWindow = () => {
     return(
@@ -49,6 +51,9 @@ const InfoWindow = () => {
                     </div>
 
 
+                </div>
+                <div className="backBtn" id="backBtn" onClick={HideInfo_profile} style={{display:'none'}}>
+                    <img src={backIcon} alt="" className="Iconback"/>
                 </div>
             </div>
     );

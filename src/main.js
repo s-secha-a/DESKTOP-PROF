@@ -13,8 +13,7 @@ updateElectronApp({
   updateSource: {
     type: UpdateSourceType.ElectronPublicUpdateService,
     repo: 's-secha-a/SUAI-DESKPROF'
-  },
-  updateInterval: '1 hour'
+  }
 })
 
 
@@ -49,15 +48,25 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     icon: appIcon,
-    width: 1280,
-    height: 720,
+    width: 1300,
+    height: 760,
     autoHideMenuBar: true,
-    transparent: true,
-    frame: false,
+    titleBarStyle: 'hidden',
+    titleBarOverlay: {
+      color: '#0A0A0A',
+      symbolColor: '#ebebebff'
+    },
+    backgroundColor: '#0A0A0A',
+    // transparent: true,
+    // frame: false,
     resizable: false,
+    fullscreenable: false,
+    fullscreen: false,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
-      devTools: false,
+
+      // devTools: true,
+
       contextIsolation: true,
     },
   });
@@ -69,6 +78,10 @@ const createWindow = () => {
   // mainWindow.webContents.openDevTools();
 
   mainWindow.setIcon(appIcon);
+  
+  mainWindow.on('maximize', () => {
+    mainWindow.unmaximize()
+  });
 
   mainWindow.webContents.once('did-finish-load', () => {
     mainWindow.webContents.send('app-version', version);
@@ -104,6 +117,7 @@ app.whenReady().then(() => {
     }
   });
 });
+
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits

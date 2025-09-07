@@ -61,7 +61,7 @@ const Profile = () => {
           <div className="StudentPhoto-Profile" id="PhotoProfile">
             
           </div>
-
+              
         </div>
     );
 };

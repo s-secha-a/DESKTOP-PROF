@@ -4,6 +4,8 @@ import "./styles.css"
 import { Profile } from "../Profile/index.jsx";
 import { addNewPrint } from "./newPrint.js";
 import { clearUserData } from "../sideScripts/clearUserData.js";
+import { HideInfo_profile } from "../sideScripts/hideInfo.js";
+import backIcon from "../../assets/Icons/backIcon24.png";
 
 const PrintPG = () => {
     window.sessionStorage.setItem('activeWindow', 'Print');
@@ -45,6 +47,9 @@ const PrintPG = () => {
                     </div>
                 </div>
             </div>
+            <div className="backBtn" id="backBtn" onClick={HideInfo_profile} style={{display:'none'}}>
+                <img src={backIcon} alt="" className="Iconback"/>
+            </div>       
         </div>
     );
 };

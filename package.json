@@ -1,7 +1,7 @@
 {
   "name": "desktop-prof",
   "productName": "SUAI Deskprof",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Приложение для офисов профкома ГУАП",
   "main": ".webpack/main",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "icon": "./src/appIcon.ico",
   "keywords": [],
-  "author": "Максим",
+  "author": "Secha",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.28.0",
