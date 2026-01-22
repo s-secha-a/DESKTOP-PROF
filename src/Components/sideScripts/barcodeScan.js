@@ -10,11 +10,11 @@ import { showMessage } from "./showSysMes.js";
 
 const URL = getServUrl();
 
-export function ScanBarcode(barcode) {
+export function ScanBarcode(suaiqr) {
     let ActivePage = window.sessionStorage.getItem('activeWindow');
     
     if (ActivePage == "Search") {
-        fetch(`${URL}/api/v2.0/searchBarcode?barcode=${barcode}&sessionCode=${window.sessionStorage.getItem("sessionCode")}`, {
+        fetch(`${URL}/api/v3/desktop/searchBarcode?suaiqr=${suaiqr}&sessioncode=${window.sessionStorage.getItem("sessionCode")}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -33,7 +33,7 @@ export function ScanBarcode(barcode) {
             } else if (response.ok) {
                 return response.json();}
         }).then(firstData =>{
-            fetch(`${URL}/api/v2.0/profile?uuidUser=${firstData.uuidUser}&sessionCode=${window.sessionStorage.getItem("sessionCode")}`, {
+            fetch(`${URL}/api/v3/desktop/profile?uuiduser=${firstData.uuidUser}&sessioncode=${window.sessionStorage.getItem("sessionCode")}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'
@@ -55,14 +55,13 @@ export function ScanBarcode(barcode) {
             })
             .then(data=>{
                 window.sessionStorage.setItem('uuidUser', data.uuidUser);
-                window.sessionStorage.setItem('lastName', data.lastName);
+                window.sessionStorage.setItem('lastName', data.secondname);
                 window.sessionStorage.setItem('firstName', data.firstName);
                 window.sessionStorage.setItem('patronymic', data.patronymic);
                 window.sessionStorage.setItem('nameFaculty', data.nameFaculty);
                 window.sessionStorage.setItem('course', data.course);
-                window.sessionStorage.setItem('budget', data.budget);
-                window.sessionStorage.setItem('sksStatus', data.sksStatus);
-                window.sessionStorage.setItem('money', data.money);
+                window.sessionStorage.setItem('status', data.status);
+                window.sessionStorage.setItem('stipendia', data.stipendia);
                 window.sessionStorage.setItem('photo', data.photo);
                 ShowInfo_profile()
                 ShowInfo_search() 
@@ -82,7 +81,7 @@ export function ScanBarcode(barcode) {
         })
         // document.getElementById("StudentInfo-Spisok").style.display = 'inline'
     } else if (ActivePage == "Print") {
-        fetch(`${URL}/api/v2.0/searchBarcode?barcode=${barcode}&sessionCode=${window.sessionStorage.getItem("sessionCode")}`, {
+        fetch(`${URL}/api/v3/desktop/searchBarcode?suaiqr=${suaiqr}&sessioncode=${window.sessionStorage.getItem("sessionCode")}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -102,7 +101,7 @@ export function ScanBarcode(barcode) {
                 return response.json();}
         }).then(firstData =>{
             window.sessionStorage.setItem('uuidUser', firstData.uuidUser);
-            fetch(`${URL}/api/v2.0/studentInfo?uuidUser=${firstData.uuidUser}&sessionCode=${window.sessionStorage.getItem("sessionCode")}`, {
+            fetch(`${URL}/api/v3/desktop/studentInfo?uuiduser=${firstData.uuidUser}&sessioncode=${window.sessionStorage.getItem("sessionCode")}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'
@@ -129,7 +128,7 @@ export function ScanBarcode(barcode) {
                 window.sessionStorage.setItem('photo', data.photo);
                 ShowInfo_profile()
             }).then(
-                fetch(`${URL}/api/v2.0/printInfo?uuidUser=${window.sessionStorage.getItem("uuidUser")}&sessionCode=${window.sessionStorage.getItem("sessionCode")}`, {
+                fetch(`${URL}/api/v3/desktop/printInfo?uuiduser=${window.sessionStorage.getItem("uuidUser")}&sessioncode=${window.sessionStorage.getItem("sessionCode")}`, {
                     method: "GET",
                     headers: {
                         'Content-Type': 'application/json; charset=utf-8'
@@ -179,7 +178,7 @@ export function ScanBarcode(barcode) {
         // document.getElementById("StudentInfo-Spisok").style.display = 'inline'
     } else if (ActivePage == "Activate") {
         try{
-            fetch(`${URL}/api/v2.0/search?searchText=${barcode}&sessionCode=${window.sessionStorage.getItem("sessionCode")}&isActive=false`, {
+            fetch(`${URL}/api/v3/desktop/search?searchText=${barcode}&sessioncode=${window.sessionStorage.getItem("sessionCode")}&isActive=false`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'
@@ -227,8 +226,8 @@ export function FindByBarcode() {
     if (window.sessionStorage.getItem('activeWindow')!="Activate") {
         if (barcode.length == 0 ){
             showMessage("Поле ввода пустое", "warn");
-        } else if (barcode.length != 13){
-            showMessage("Баркод неверного формата", "warn");
+        // } else if (barcode.length != 13){
+        //     showMessage("Баркод неверного формата", "warn");
         } else {
             ScanBarcode(barcode);
         }

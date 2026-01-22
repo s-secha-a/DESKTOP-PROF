@@ -7,7 +7,7 @@ const URL = getServUrl();
 
 export function findManager() {
     try {
-        fetch(`${URL}/api/v2.0/profile?uuidUser=${window.sessionStorage.getItem("managerUuid")}&sessionCode=${window.sessionStorage.getItem("sessionCode")}`, {
+        fetch(`${URL}/api/v3/desktop/profile?uuiduser=${window.sessionStorage.getItem("managerUuid")}&sessioncode=${window.sessionStorage.getItem("sessionCode")}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -28,7 +28,7 @@ export function findManager() {
                 return response.json();}
         })
         .then(data=>{
-            document.getElementById('SecondName-StudentName-Profile').innerHTML = data.lastName;
+            document.getElementById('SecondName-StudentName-Profile').innerHTML = data.secondname;
             document.getElementById('FirstName-StudentName-Profile').innerHTML = data.firstName;
             document.getElementById('PatronymicName-StudentName-Profile').innerHTML = data.patronymic;
 

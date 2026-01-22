@@ -21,7 +21,7 @@ export default function LogInClick() {
         try {
             console.log(login);
             console.log(password);
-            fetch(`${URL}/api/v2.0/userAuth?login=${login}&password=${password}&locate=${locate}`, {
+            fetch(`${URL}/api/v3/desktop/userAuth?login=${login}&password=${password}&locate=${locate}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'
@@ -33,6 +33,11 @@ export default function LogInClick() {
                     var er = new Error("Выход из then | 403");
                     er.name = "Custom";
                     throw er;
+                } else if (response.status == 406){
+                    showMessage("Ошибка на стороне сервера", "error");
+                    var er = new Error("Выход из then | 406");
+                    er.name = "Custom";
+                    throw er;
                 } else if (!response.ok){
                     showMessage("Ошибка запроса auth", "error");
                     var er = new Error("Выход из then | !response.ok");
@@ -42,6 +47,7 @@ export default function LogInClick() {
                     return response.json();
             }})
             .then(data => {
+                console.log(data);
                 if (data.access == true) {
                     window.sessionStorage.setItem('sessionCode', data.sessionCode);
                     window.sessionStorage.setItem('locate', locate);

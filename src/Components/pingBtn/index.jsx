@@ -9,7 +9,7 @@ import './styles.css';
 const URL = getServUrl();
 
 function pping() {
-    fetch(`${URL}/api/v2.0/isOnline`, {
+    fetch(`${URL}/api/isOnline`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'

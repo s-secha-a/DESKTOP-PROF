@@ -8,10 +8,10 @@ export function ShowInfo_search() {
     if (window.sessionStorage.getItem('budget')=="true") {
         document.getElementById('editBudget').innerHTML = "Бюджет";
     } else {document.getElementById('editBudget').innerHTML = "Контракт";}
-    if (window.sessionStorage.getItem('sksStatus')=="active") {
+    if (window.sessionStorage.getItem('status')=="active") {
         document.getElementById('editSksStatus').innerHTML = "Активен";
     } else {document.getElementById('editSksStatus').innerHTML = "Не активен";}
-    if (window.sessionStorage.getItem('money')=="true") {
-        document.getElementById('editMoney').innerHTML = "Оплачен";
-    } else {document.getElementById('editMoney').innerHTML = "Не оплачен";}
+    // if (window.sessionStorage.getItem('money')=="true") {
+    //     document.getElementById('editMoney').innerHTML = "Оплачен";
+    // } else {document.getElementById('editMoney').innerHTML = "Не оплачен";}
 }   
