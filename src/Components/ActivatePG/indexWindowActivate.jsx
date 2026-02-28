@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ActiveAcc, BlockAcc, RejectAcc } from "./buttonActivation.js";
+import { ActiveAcc, BlockAcc, viewPDFInFrame, RejectAcc } from "./buttonActivation.js";
 import { HideInfo_profile } from "../sideScripts/hideInfo.js";
 import backIcon from "../../assets/Icons/backIcon24.png";
 
@@ -31,6 +31,9 @@ const InfoWindow = () => {
                     <div className="sksStatus">
                         <div className="Label-StudentInfo-Spisok">Статус</div>
                         <div className="Name-StudentInfo-Spisok" id="editSksStatus"></div>
+                    </div>
+                    <div>
+                        <input type="button" className="checks" value="Чек" onClick={viewPDFInFrame}/>
                     </div>
 
                     <div className="confirmButtons" id="NewStudent" style={{display:"none"}}>

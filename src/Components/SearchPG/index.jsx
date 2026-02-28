@@ -38,10 +38,6 @@ const SearchPG = () => {
                         <div className="Label-StudentInfo-Spisok">Статус аккаунта</div>
                         <div className="Name-StudentInfo-Spisok" id="editSksStatus"></div>
                     </div>
-                    <div className="ContributionStatus">
-                        <div className="Label-StudentInfo-Spisok">Взнос</div>
-                        <div className="Name-StudentInfo-Spisok" id="editMoney"></div>
-                    </div>
                 </div>
 
             </div>

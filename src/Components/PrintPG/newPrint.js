@@ -27,7 +27,7 @@ export function addNewPrint() {
         // throw new Error("ЗНАЧЕНИЕ БОЛЬШЕ 30"); // Сделать вывод на экран
     } else {
         try {
-            fetch(`${URL}/api/v2.0/printInfo`, {
+            fetch(`${URL}/api/v3/desktop/printInfo`, {
                 method: "PUT",
                 body: JSON.stringify({
                     uuidUser: window.sessionStorage.getItem("uuidUser"),

@@ -1,3 +1,4 @@
+import { getServUrl } from "../sideScripts/env.js";
 
 
 export function ShowInfo_profile() {
@@ -7,10 +8,5 @@ export function ShowInfo_profile() {
     document.getElementById('SecondName-StudentName-Profile').innerHTML = window.sessionStorage.getItem('lastName');
     document.getElementById('FirstName-StudentName-Profile').innerHTML = window.sessionStorage.getItem('firstName');
     document.getElementById('PatronymicName-StudentName-Profile').innerHTML = window.sessionStorage.getItem('patronymic');
-    
-    var photoProfile = new Image();
-    photoProfile.src = window.sessionStorage.getItem('photo');
-    photoProfile.className="StudentPhoto-Profile";
-    document.getElementById('PhotoProfile').innerHTML = "";
-    document.getElementById('PhotoProfile').appendChild(photoProfile);
+
 };

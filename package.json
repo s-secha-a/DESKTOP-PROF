@@ -1,7 +1,7 @@
 {
   "name": "desktop-prof",
   "productName": "SUAI Deskprof",
-  "version": "0.1.6",
+  "version": "0.1.9",
   "description": "Приложение для офисов профкома ГУАП",
   "main": ".webpack/main",
   "scripts": {

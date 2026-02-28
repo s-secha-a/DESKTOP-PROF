@@ -5,7 +5,7 @@ const URL = getServUrl();
 
 
 export function findByName(uuid) {
-    fetch(`${URL}/api/v2.0/profile?uuidUser=${uuid}&sessionCode=${window.sessionStorage.getItem("sessionCode")}`, {
+    fetch(`${URL}/api/v3/desktop/profile?uuiduser=${uuid}&sessioncode=${window.sessionStorage.getItem("sessionCode")}`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
@@ -21,13 +21,13 @@ export function findByName(uuid) {
     })
     .then(data=>{
                     window.sessionStorage.setItem('uuidUser', data.uuidUser);
-                    window.sessionStorage.setItem('lastName', data.lastName);
+                    window.sessionStorage.setItem('lastName', data.secondname);
                     window.sessionStorage.setItem('firstName', data.firstName);
                     window.sessionStorage.setItem('patronymic', data.patronymic);
                     window.sessionStorage.setItem('nameFaculty', data.nameFaculty);
                     window.sessionStorage.setItem('course', data.course);
                     window.sessionStorage.setItem('photo', data.photo);
-                    window.sessionStorage.setItem('sksStatus', data.sksStatus);
+                    window.sessionStorage.setItem('sksStatus', data.status);
                     window.sessionStorage.setItem('budget', data.budget);
                     window.sessionStorage.setItem('startEducation', data.startEducation);
                     window.sessionStorage.setItem('endEducation', data.endEducation);

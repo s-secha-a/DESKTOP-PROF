@@ -39,11 +39,6 @@ export function findManager() {
 
             loadVersion();
             
-            var photoProfile = new Image();
-            photoProfile.src = data.photo;
-            photoProfile.className="StudentPhoto-Profile";
-            document.getElementById('PhotoProfile').innerHTML = "";
-            document.getElementById('PhotoProfile').appendChild(photoProfile);
         })
         .catch(err=>{
             if (err.name != "Custom" && err.name == "TypeError"){

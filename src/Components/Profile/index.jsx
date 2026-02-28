@@ -58,9 +58,9 @@ const Profile = () => {
             <div id="PatronymicName-StudentName-Profile"></div>
           </div>
 
-          <div className="StudentPhoto-Profile" id="PhotoProfile">
+          {/* <div className="StudentPhoto-Profile" id="PhotoProfile"> </div>*/}
             
-          </div>
+          
               
         </div>
     );

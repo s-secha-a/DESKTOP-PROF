@@ -101,7 +101,7 @@ export function ScanBarcode(suaiqr) {
                 return response.json();}
         }).then(firstData =>{
             window.sessionStorage.setItem('uuidUser', firstData.uuidUser);
-            fetch(`${URL}/api/v3/desktop/studentInfo?uuiduser=${firstData.uuidUser}&sessioncode=${window.sessionStorage.getItem("sessionCode")}`, {
+            fetch(`${URL}/api/v3/desktop/profile?uuiduser=${firstData.uuidUser}&sessioncode=${window.sessionStorage.getItem("sessionCode")}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'
@@ -122,7 +122,7 @@ export function ScanBarcode(suaiqr) {
                     return response.json();}
             })
             .then(data=>{
-                window.sessionStorage.setItem('lastName', data.lastName);
+                window.sessionStorage.setItem('lastName', data.secondname);
                 window.sessionStorage.setItem('firstName', data.firstName);
                 window.sessionStorage.setItem('patronymic', data.patronymic);
                 window.sessionStorage.setItem('photo', data.photo);
@@ -178,7 +178,8 @@ export function ScanBarcode(suaiqr) {
         // document.getElementById("StudentInfo-Spisok").style.display = 'inline'
     } else if (ActivePage == "Activate") {
         try{
-            fetch(`${URL}/api/v3/desktop/search?searchText=${barcode}&sessioncode=${window.sessionStorage.getItem("sessionCode")}&isActive=false`, {
+            console.log(suaiqr, window.sessionStorage.getItem("sessionCode"))
+            fetch(`${URL}/api/v3/desktop/search?searchText=${suaiqr}&sessioncode=${window.sessionStorage.getItem("sessionCode")}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'

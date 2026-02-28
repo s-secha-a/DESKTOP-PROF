@@ -15,9 +15,9 @@ const SideBarHTML = () => {
                     <img src={SearchIcon} className="pageLinkBtnIcon"/>
                 </Link>
 
-                <Link className="pageLinkBtn" to="/printPG" >
+                {/* <Link className="pageLinkBtn" to="/printPG" >
                     <img src={PrintIcon} className="pageLinkBtnIcon"/>
-                </Link>
+                </Link> */}
 
                 <Link className="pageLinkBtn" to="/activatePG" >
                     <img src={ActivateIcon} className="pageLinkBtnIcon"/>
